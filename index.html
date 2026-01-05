@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Garena Free Fire Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#fff;
+}
+.header{
+  background:#e60012;
+  color:#fff;
+  padding:15px;
+  text-align:center;
+  font-size:24px;
+  font-weight:bold;
+}
+.header img{
+  height:40px;
+  vertical-align:middle;
+  margin-right:10px;
+}
+.container{
+  padding:20px;
+}
+input{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
+}
+button{
+  width:100%;
+  padding:14px;
+  background:#e60012;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:active{
+  transform:scale(0.97);
+}
+.diamond{
+  position:fixed;
+  top:-50px;
+  width:30px;
+  animation:fall 3s linear forwards;
+}
+@keyframes fall{
+  to{
+    transform:translateY(100vh);
+    opacity:0;
+  }
+}
+.diamond-box{
+  text-align:center;
+  margin-top:20px;
+}
+.note{
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  margin-top:15px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Garena_logo.svg" alt="Garena Logo">
+  GARENA FREE FIRE
+</div>
+
+<div class="container">
+  <input placeholder="Gmail (demo)">
+  <input type="password" placeholder="Code (demo)">
+  <input placeholder="Diamonds amount">
+  <input placeholder="FF ID">
+
+  <button onclick="dropDiamonds()">CONTINUE</button>
+
+  <div class="diamond-box">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Diamond_icon.svg" alt="Diamond">
+  </div>
+
+  <div class="note">
+    ⚠ This is a DEMO page only.<br>
+    No data is collected or sent.
+  </div>
+</div>
+
+<script>
+function dropDiamonds(){
+  for(let i=0;i<20;i++){
+    let d=document.createElement("img");
+    d.src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Diamond_icon.svg";
+    d.className="diamond";
+    d.style.left=Math.random()*100+"vw";
+    d.style.animationDuration=(2+Math.random()*2)+"s";
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(),4000);
+  }
+  alert("Demo only. No data sent.");
+}
+</script>
+
+</body>
+</html>
